@@ -1,5 +1,5 @@
 $( "document" ).ready(function() {
- $("button").click(function() {
+$("button").click(function() {
 
     $("p").text("");
 
@@ -121,9 +121,10 @@ $( "document" ).ready(function() {
     }
 
     for (let z=0; z<rows-1; z++) {
+        var lastOne = arrayOfArrays[z][arrayOfArrays[z].length-1];
         if (arrayOfArrays[z+1][0] === "!" || arrayOfArrays[z+1][0] === "," || arrayOfArrays[z+1][0] === ";"  || arrayOfArrays[z+1][0] === "."  || arrayOfArrays[z+1][0] === "?" && arrayOfArrays[z+1].length === 1) {
             arrayOfArrays[z+1].push(" ");
-        } else if (arrayOfArrays[z][arrayOfArrays[z].length-1] === "ay") {
+        } else if (["ay", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(lastOne)) {
             arrayOfArrays[z].push(" ");
 
         }
@@ -157,6 +158,5 @@ $( "document" ).ready(function() {
             });
     }
 });
-
 
 });
